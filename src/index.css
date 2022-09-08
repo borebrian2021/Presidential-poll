@@ -59,8 +59,19 @@ body{
   align-items: center;
   text-align: center;
 }
-.other_options{
-  padding: 10px;
-  text-align: left;
+.yellow{
+
   color: #fed800;
+}
+.level_parent{
+  width: 160px; 
+  background-color: #16202c;
+  height:15px;
+  border-radius: 15px;
+}
+.level_child{
+  height: 15px;
+  border-radius: 15px;
+  background-color: #60991a;
+  width:100px;
 }

@@ -17,11 +17,12 @@ function Home() {
 
                         </td>
                         <td>
-<h5 class="yellow">William Samoei Ruto</h5>
-
+<h5 class="yellow">William Samoei Ruto</h5><br/>
+<div class="level_parent"></div>
                         </td>
 
                     </tr>
+                    
 
 
 
