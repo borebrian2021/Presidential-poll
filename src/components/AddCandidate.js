@@ -31,6 +31,7 @@ function AddCandidate() {
     const [partyLogo, setPartyLogo] = useState("")
     const [hide, setHide] = useState(false)
     const [response, setResponse] = useState("")
+    const [polls ,setPolls]=useState([])
 
     //RENDERING TO DOM
     const renderPolls =(data)=>{
@@ -45,7 +46,8 @@ function AddCandidate() {
         fetch(BASE_URL +'/get_all_candidates')
             .then((data) => data.json())
             .then((data1) => {
-                renderPolls(data1);
+                setPolls(data1);
+                console.log(polls)
             })
     }, [])
 
@@ -137,33 +139,41 @@ function AddCandidate() {
                 <h6 class="next_to_buttons">Registered Candidates</h6>
 
             </div>
-            <div className="pollsResults">
+            {
+                polls.map((item,index)=>{
+                    return(
+                        <div className="pollsResults">
 
 
-                <table>
-                    <tr>
-                        <td rowspan="3">
-                            <img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0" />
+                        <table>
+                            <tr>
+                                <td rowspan="3">
+                                    <img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0" />
+        
+                                </td>
+                                <td>
+                                    <h5 class="yellow">{item.candidate_name}</h5>
+                                    <div class="level_parent">
+                                        <div class="level_child"></div>
+                                    </div>
+                                    <button class="votes">{item.votes.count}</button>
+        
+                                    <button class="optionButtons">Delete</button>
+        
+                                </td>
+        
+                            </tr>
+        
+        
+        
+        
+                        </table>
+                    </div>
+                    )
+                })
 
-                        </td>
-                        <td>
-                            <h5 class="yellow">William Samoei Ruto</h5>
-                            <div class="level_parent">
-                                <div class="level_child"></div>
-                            </div>
-                            <button class="votes">67</button>
-
-                            <button class="optionButtons">Delete</button>
-
-                        </td>
-
-                    </tr>
-
-
-
-
-                </table>
-            </div>
+            }
+           
         </div>
 
     )
