@@ -36,10 +36,22 @@ function AddCandidate() {
     //RENDERING TO DOM
     const renderPolls =(data)=>{
         data.map((item)=>{
-            alert(item.candidate_name)
+            // alert(item.candidate_name)
         })
     }
 
+    //DELETE API
+    const delete_candidate=(id)=>{
+        // alert(id)
+        fetch(BASE_URL +`/delete_candidate/`+id, {
+            method: "DELETE",
+          })
+            .then((r) => r.json())
+            .then((deletedReview) => {
+            setResponse(`Success!, You have deleted ${deletedReview.candidate_name}.`)
+            setHide(!hide)})
+        }
+    
 
     //LETS LOAD ALL CANDIDATES
     useEffect(() => {
@@ -49,12 +61,12 @@ function AddCandidate() {
                 setPolls(data1);
                 console.log(polls)
             })
-    }, [])
+    }, [hide])
 
     //STOPT FORM FROM REFRESH
     const handleSubmit = (event) => {
         event.preventDefault()
-        alert(candidateName)
+        // alert(candidateName)
         fetch(BASE_URL + "/addParty", {
             method: "POST",
             headers: {
@@ -142,7 +154,7 @@ function AddCandidate() {
             {
                 polls.map((item,index)=>{
 
-                    let totalVotesCount=100
+                    let totalVotesCount=160
                     let gauge=10
                     let final=gauge/totalVotesCount*100
                     console.log(final)
@@ -165,7 +177,7 @@ function AddCandidate() {
                                     </div>
                                     <button class="votes">{item.votes.count}</button>
         
-                                    <button class="optionButtons">Delete</button>
+                                    <button class="optionButtons" onClick={()=>{delete_candidate(item.id)}} >Delete</button>
         
                                 </td>
         
