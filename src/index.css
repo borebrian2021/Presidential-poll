@@ -121,5 +121,7 @@ margin-right: 5px;
 .message{
   margin: 10px;
   width:90% !important;
-  height: 10px !important;
+  height: unset;
+  color:#fed800;
+  /* height: 10px !important; */
 }

@@ -3,7 +3,24 @@ const BASE_URL = "http://localhost:9292"
 //STATES
 
 
+const FunctionMessage = ({response,hide}) => {
+    if (hide) {
+        return (
+            <div className="pollsResults message"  >
+                <small>{response}</small>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
 
+            </div>
+        )
+
+
+    }
+}
 
 
 
@@ -12,7 +29,9 @@ function AddCandidate() {
     const [partyName, setPartyName] = useState("");
     const [profileImage, setProfileImage] = useState("");
     const [partyLogo, setPartyLogo] = useState("")
-    // const [hide ,setHide]=useState(false)
+    const [hide, setHide] = useState(false)
+    const [response, setResponse] = useState("")
+
 
 
 
@@ -35,8 +54,12 @@ function AddCandidate() {
             )
         }).then((feedback) => feedback.json())
             .then((data) => {
+                // alert(data.partyName)
+                // console.log(data)
+                setResponse(`Success!, You have registered ${data.candidate_name} candidate_name`)
+                setHide(!hide)
                 resetInputs()
-                alert(data.partyName)
+
             })
 
     }
@@ -94,11 +117,8 @@ function AddCandidate() {
 
 
             </div>
-            <div className="pollsResults message">
-            <small class="next_to_buttons">Registered Candidates</small>
-            
-            </div>
-          
+
+<FunctionMessage response={response} hide={hide}/>
             <div className="appTitle">
                 <h6 class="next_to_buttons">Registered Candidates</h6>
 
