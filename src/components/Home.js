@@ -1,10 +1,10 @@
 import React,{useEffect,useState} from "react";
 const BASE_URL = "http://localhost:9292"
 
-function Home(
+function Home(){
 const [polls,setPolls]=useState([])
-
-    useEffect(() => {
+const [hide,setHide]=useState(false)
+useEffect(() => {
         fetch(BASE_URL + '/get_all_candidates')
             .then((data) => data.json())
             .then((data1) => {
@@ -12,6 +12,7 @@ const [polls,setPolls]=useState([])
                 console.log(polls)
             })
     }, [hide])
+
 
 
 
@@ -50,32 +51,47 @@ const [polls,setPolls]=useState([])
 
                 </table>
             </div>
-            <div className="pollsResults">
+        {
+                polls.map((item, index) => {
+
+                    let totalVotesCount = 160
+                    let gauge = 10
+                    let final = gauge / totalVotesCount * 100
+                    console.log(final)
 
 
-<table>
-    <tr>
-        <td rowspan="3">
-            <img src="https://iili.io/6L84Uu.jpg" className="poll_image" alt="6Lue1a.jpg" border="0" />
-
-        </td>
-        <td>
-<h5 class="yellow">Raila Odinga</h5>
-<div class="level_parent">
-<div class="level_child"></div>
-</div>
-<button class="votes">67</button>
-
-<button class="optionButtons">Upvote</button>
-        </td>
-
-    </tr>
-    
+                    return (
+                        <div className="pollsResults">
 
 
+                            <table>
+                                <tr>
+                                    <td rowspan="3">
+                                        <img src={item.profile_image} className="poll_image" alt="6Lue1a.jpg" border="0" />
 
-</table>
-</div>
+                                    </td>
+                                    <td>
+                                        <h5 class="yellow">{item.candidate_name}</h5>
+                                        <div class="level_parent">
+                                            <div class="level_child" style={{ width: final + "px" }}></div>
+                                        </div>
+                                        <button class="votes">{item.votes.count}</button>
+
+                                        {/* <button class="optionButtons" onClick={() => { delete_candidate(item.id) }} >Delete</button> */}
+
+                                    </td>
+
+                                </tr>
+
+
+
+
+                            </table>
+                        </div>
+                    )
+                })
+
+            }
         </div>
 
     )
