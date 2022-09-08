@@ -12,6 +12,9 @@ let [candidateName, setCandidateName] = useState("");
 const [partyName, setPartyName] = useState("");
 const [profileImage, setProfileImage] = useState("");
 const [partyLogo,setPartyLogo]=useState("")
+// const [hide ,setHide]=useState(false)
+
+
 
 //STOPT FORM FROM REFRESH
 const handleSubmit=(event)=>{
@@ -25,17 +28,25 @@ const handleSubmit=(event)=>{
         body:JSON.stringify(
             {
                 partyName:partyName,
-                profileImage:profileImage,
+                candidateName:candidateName,
                 partyLogo:partyLogo,
                 profileImage:profileImage
             }
         )
     }).then((feedback)=>feedback.json())
     .then((data)=>{
+        resetInputs
         alert(data.partyName)
     })
     
     }
+//RESET INPUTS
+const resetInputs =()=>{
+    setCandidateName("")
+    setProfileImage("")
+    setPartyName("")
+    setPartyLogo("")
+}
 
 //HANDLING INPUT CHANGES
 const handleCandidate=(event)=>{
@@ -56,7 +67,6 @@ const handlePartyLogo=(event)=>{
             <div className="appTitle">
                 <h6 class="next_to_buttons">Register New Candidate</h6>
                 <button class="optionButtons optionButtons_yellow">Back to polls</button>
-
             </div>
             <div className="pollsResults">
                 <form class="register" onSubmit={handleSubmit}>
@@ -82,6 +92,10 @@ const handlePartyLogo=(event)=>{
 
                 </form>
 
+
+            </div>
+            <div className="appTitle m-3">
+                <h6 class="next_to_buttons">Registered Candidates</h6>
 
             </div>
             <div className="appTitle">
