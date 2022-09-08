@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 const BASE_URL = "http://localhost:9292"
 //STATES
 
 
-const FunctionMessage = ({response,hide}) => {
+const FunctionMessage = ({ response, hide }) => {
     if (hide) {
         return (
             <div className="pollsResults message"  >
@@ -32,8 +32,20 @@ function AddCandidate() {
     const [hide, setHide] = useState(false)
     const [response, setResponse] = useState("")
 
+    //RENDERING TO DOM
+    const renderPolls =()=>{
+
+    }
 
 
+    //LETS LOAD ALL CANDIDATES
+    useEffect(() => {
+        fetch(BASE_URL +'/get_all_candidates')
+            .then((data) => data.json())
+            .then((data1) => {
+                setDrinks(data1);
+            })
+    }, [])
 
     //STOPT FORM FROM REFRESH
     const handleSubmit = (event) => {
@@ -118,7 +130,7 @@ function AddCandidate() {
 
             </div>
 
-<FunctionMessage response={response} hide={hide}/>
+            <FunctionMessage response={response} hide={hide} />
             <div className="appTitle">
                 <h6 class="next_to_buttons">Registered Candidates</h6>
 
