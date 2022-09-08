@@ -11,6 +11,14 @@ function Home(){
 <div className="imageSecetion">
 <img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0"/>
 </div>
+<div class="other_options">
+    
+</div>
+    </div>
+    <div className="pollsResults">
+<div className="imageSecetion">
+<img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0"/>
+</div>
     </div>
 </div>
 

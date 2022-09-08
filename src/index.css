@@ -22,8 +22,10 @@ body{
   height:300px;
   width: 80%;
   margin-top:10%;
-  background-color: #23313d;
+  background-color: #16202c
+;
   border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .pollsResults{
 
@@ -32,8 +34,8 @@ body{
   grid-gap: 10px;
   margin-top:2px;
   padding:2px;
-  height:80px;
-  background-color: #16202c;
+  height:160px;
+  background-color: #23313d;
 }
 #root{
   display: flex;
@@ -41,4 +43,19 @@ body{
   justify-content: center;
   height:100%;
   width: 100%;
+}
+
+.poll_image{
+  height: 100px;
+  width:100px;
+  margin:10px;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+.imageSecetion{
+  display: flex;
+  justify-content:left;
+  align-items: center;
+  text-align: center;
 }
