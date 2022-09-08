@@ -1,6 +1,21 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
+const BASE_URL = "http://localhost:9292"
 
-function Home() {
+function Home(
+const [polls,setPolls]=useState([])
+
+    useEffect(() => {
+        fetch(BASE_URL + '/get_all_candidates')
+            .then((data) => data.json())
+            .then((data1) => {
+                setPolls(data1);
+                console.log(polls)
+            })
+    }, [hide])
+
+
+
+
 
     return (
         <div className="home">

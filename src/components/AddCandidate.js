@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 const BASE_URL = "http://localhost:9292"
 //STATES
 
@@ -31,31 +31,32 @@ function AddCandidate() {
     const [partyLogo, setPartyLogo] = useState("")
     const [hide, setHide] = useState(false)
     const [response, setResponse] = useState("")
-    const [polls ,setPolls]=useState([])
+    const [polls, setPolls] = useState([])
 
     //RENDERING TO DOM
-    const renderPolls =(data)=>{
-        data.map((item)=>{
+    const renderPolls = (data) => {
+        data.map((item) => {
             // alert(item.candidate_name)
         })
     }
 
     //DELETE API
-    const delete_candidate=(id)=>{
+    const delete_candidate = (id) => {
         // alert(id)
-        fetch(BASE_URL +`/delete_candidate/`+id, {
+        fetch(BASE_URL + `/delete_candidate/` + id, {
             method: "DELETE",
-          })
+        })
             .then((r) => r.json())
             .then((deletedReview) => {
-            setResponse(`Success!, You have deleted ${deletedReview.candidate_name}.`)
-            setHide(!hide)})
-        }
-    
+                setResponse(`Success!, You have deleted ${deletedReview.candidate_name}.`)
+                setHide(!hide)
+            })
+    }
+
 
     //LETS LOAD ALL CANDIDATES
     useEffect(() => {
-        fetch(BASE_URL +'/get_all_candidates')
+        fetch(BASE_URL + '/get_all_candidates')
             .then((data) => data.json())
             .then((data1) => {
                 setPolls(data1);
@@ -129,10 +130,10 @@ function AddCandidate() {
                             <input class="form-control m-1" value={partyName} onChange={handlePartyName} required placeholder="Enter party name"></input>
                         </div>
                         <div className="col-lg-4 col-md-3 col-6 ">
-                            <input class="form-control m-1" value={profileImage} required onChange={handleProfileImage} placeholder="Enter image url"></input>
+                            <textarea class="form-control m-1" value={profileImage} required onChange={handleProfileImage} placeholder="Enter image url"></textarea>
                         </div>
                         <div className="col-lg-4 col-md-3 col-6 ">
-                            <input class="form-control m-1" required value={partyLogo} onChange={handlePartyLogo} placeholder="Enter party logo url"></input>
+                            <textarea class="form-control m-1" required value={partyLogo} onChange={handlePartyLogo} placeholder="Enter party logo url"></textarea>
                         </div>
                         <div className="col-lg-4 col-md-3 col-6  ">
                             <button class="optionButtons mt-2" type="submit">Submit</button>
@@ -152,47 +153,47 @@ function AddCandidate() {
 
             </div>
             {
-                polls.map((item,index)=>{
+                polls.map((item, index) => {
 
-                    let totalVotesCount=160
-                    let gauge=10
-                    let final=gauge/totalVotesCount*100
+                    let totalVotesCount = 160
+                    let gauge = 10
+                    let final = gauge / totalVotesCount * 100
                     console.log(final)
 
 
-                    return(
+                    return (
                         <div className="pollsResults">
 
 
-                        <table>
-                            <tr>
-                                <td rowspan="3">
-                                    <img src={item.profile_image} className="poll_image" alt="6Lue1a.jpg" border="0" />
-        
-                                </td>
-                                <td>
-                                    <h5 class="yellow">{item.candidate_name}</h5>
-                                    <div class="level_parent">
-                                        <div class="level_child" style={{width:final+"px"}}></div>
-                                    </div>
-                                    <button class="votes">{item.votes.count}</button>
-        
-                                    <button class="optionButtons" onClick={()=>{delete_candidate(item.id)}} >Delete</button>
-        
-                                </td>
-        
-                            </tr>
-        
-        
-        
-        
-                        </table>
-                    </div>
+                            <table>
+                                <tr>
+                                    <td rowspan="3">
+                                        <img src={item.profile_image} className="poll_image" alt="6Lue1a.jpg" border="0" />
+
+                                    </td>
+                                    <td>
+                                        <h5 class="yellow">{item.candidate_name}</h5>
+                                        <div class="level_parent">
+                                            <div class="level_child" style={{ width: final + "px" }}></div>
+                                        </div>
+                                        <button class="votes">{item.votes.count}</button>
+
+                                        <button class="optionButtons" onClick={() => { delete_candidate(item.id) }} >Delete</button>
+
+                                    </td>
+
+                                </tr>
+
+
+
+
+                            </table>
+                        </div>
                     )
                 })
 
             }
-           
+
         </div>
 
     )

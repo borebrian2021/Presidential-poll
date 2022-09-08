@@ -2,7 +2,7 @@
 // import Header from "./Header";
 // import Search from "./Search";
 // import MessageList from "./MessageList";
-// import Home from "./Home";
+import Home from "./Home";
 import AddCandidate from "./AddCandidate";
 
 
@@ -14,8 +14,10 @@ function App() {
   // const [search, setSearch] = useState("");
 
   return (
-  //  <Home/>
+    <div>
+   <Home/>
   <AddCandidate/>
+  </div>
   );
 }
 
