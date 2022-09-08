@@ -1,5 +1,5 @@
-import React ,{useState} from "react";
-const BASE_URL="http://localhost:9292"
+import React, { useState } from "react";
+const BASE_URL = "http://localhost:9292"
 //STATES
 
 
@@ -8,59 +8,59 @@ const BASE_URL="http://localhost:9292"
 
 
 function AddCandidate() {
-let [candidateName, setCandidateName] = useState("");
-const [partyName, setPartyName] = useState("");
-const [profileImage, setProfileImage] = useState("");
-const [partyLogo,setPartyLogo]=useState("")
-// const [hide ,setHide]=useState(false)
+    let [candidateName, setCandidateName] = useState("");
+    const [partyName, setPartyName] = useState("");
+    const [profileImage, setProfileImage] = useState("");
+    const [partyLogo, setPartyLogo] = useState("")
+    // const [hide ,setHide]=useState(false)
 
 
 
-//STOPT FORM FROM REFRESH
-const handleSubmit=(event)=>{
-    event.preventDefault()
-    alert(candidateName)
-    fetch(BASE_URL+"/addParty",{
-        method: "POST",
-        headers:{
-            "Content-Type": "application/json",
-        },
-        body:JSON.stringify(
-            {
-                partyName:partyName,
-                candidateName:candidateName,
-                partyLogo:partyLogo,
-                profileImage:profileImage
-            }
-        )
-    }).then((feedback)=>feedback.json())
-    .then((data)=>{
-        resetInputs
-        alert(data.partyName)
-    })
-    
+    //STOPT FORM FROM REFRESH
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        alert(candidateName)
+        fetch(BASE_URL + "/addParty", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                {
+                    partyName: partyName,
+                    candidateName: candidateName,
+                    partyLogo: partyLogo,
+                    profileImage: profileImage
+                }
+            )
+        }).then((feedback) => feedback.json())
+            .then((data) => {
+                resetInputs()
+                alert(data.partyName)
+            })
+
     }
-//RESET INPUTS
-const resetInputs =()=>{
-    setCandidateName("")
-    setProfileImage("")
-    setPartyName("")
-    setPartyLogo("")
-}
-
-//HANDLING INPUT CHANGES
-const handleCandidate=(event)=>{
-setCandidateName(event.target.value)
-}
-const handlePartyName=(event)=>{
-    setPartyName(event.target.value)
+    //RESET INPUTS
+    const resetInputs = () => {
+        setCandidateName("")
+        setProfileImage("")
+        setPartyName("")
+        setPartyLogo("")
     }
-const handleProfileImage=(event)=>{
+
+    //HANDLING INPUT CHANGES
+    const handleCandidate = (event) => {
+        setCandidateName(event.target.value)
+    }
+    const handlePartyName = (event) => {
+        setPartyName(event.target.value)
+    }
+    const handleProfileImage = (event) => {
         setProfileImage(event.target.value)
-}
-const handlePartyLogo=(event)=>{
-    setPartyLogo(event.target.value)
-}
+    }
+    const handlePartyLogo = (event) => {
+        setPartyLogo(event.target.value)
+    }
 
     return (
         <div className="home">
@@ -76,7 +76,7 @@ const handlePartyLogo=(event)=>{
                         </div>
                         <div className="col-lg-4 col-md-3 col-6 ">
                             <input class="form-control m-1" value={partyName} onChange={handlePartyName} required placeholder="Enter party name"></input>
-                        </div> 
+                        </div>
                         <div className="col-lg-4 col-md-3 col-6 ">
                             <input class="form-control m-1" value={profileImage} required onChange={handleProfileImage} placeholder="Enter image url"></input>
                         </div>
@@ -94,10 +94,11 @@ const handlePartyLogo=(event)=>{
 
 
             </div>
-            <div className="appTitle m-3">
-                <h6 class="next_to_buttons">Registered Candidates</h6>
-
+            <div className="pollsResults message">
+            <small class="next_to_buttons">Registered Candidates</small>
+            
             </div>
+          
             <div className="appTitle">
                 <h6 class="next_to_buttons">Registered Candidates</h6>
 
