@@ -2,7 +2,9 @@
 // import Header from "./Header";
 // import Search from "./Search";
 // import MessageList from "./MessageList";
-import Home from "./Home";
+// import Home from "./Home";
+import AddCandidate from "./AddCandidate";
+
 
 // const testUser = { username: "Duane" };
 
@@ -12,7 +14,8 @@ function App() {
   // const [search, setSearch] = useState("");
 
   return (
-   <Home/>
+  //  <Home/>
+  <AddCandidate/>
   );
 }
 
