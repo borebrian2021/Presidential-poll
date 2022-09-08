@@ -1,26 +1,39 @@
 import React from "react";
 
-function Home(){
+function Home() {
 
-    return(
-<div className="home">
-<div className="appTitle">
-<h6>Kenya Presidential Poll Results</h6>
-    </div>
-    <div className="pollsResults">
-<div className="imageSecetion">
-<img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0"/>
-</div>
-<div class="other_options">
-    
-</div>
-    </div>
-    <div className="pollsResults">
-<div className="imageSecetion">
-<img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0"/>
-</div>
-    </div>
-</div>
+    return (
+        <div className="home">
+            <div className="appTitle">
+                <h6>Kenya Presidential Poll Results</h6>
+            </div>
+            <div className="pollsResults">
+
+
+                <table>
+                    <tr>
+                        <td rowspan="3">
+                            <img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0" />
+
+                        </td>
+                        <td>
+<h5 class="yellow">William Samoei Ruto</h5>
+
+                        </td>
+
+                    </tr>
+
+
+
+                </table>
+            </div>
+            <div className="pollsResults">
+                <div className="imageSecetion">
+                    <img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0" />
+
+                </div>
+            </div>
+        </div>
 
     )
 }
