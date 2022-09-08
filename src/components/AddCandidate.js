@@ -141,6 +141,13 @@ function AddCandidate() {
             </div>
             {
                 polls.map((item,index)=>{
+
+                    let totalVotesCount=100
+                    let gauge=10
+                    let final=gauge/totalVotesCount*100
+                    console.log(final)
+
+
                     return(
                         <div className="pollsResults">
 
@@ -148,13 +155,13 @@ function AddCandidate() {
                         <table>
                             <tr>
                                 <td rowspan="3">
-                                    <img src="https://iili.io/6Lue1a.jpg" className="poll_image" alt="6Lue1a.jpg" border="0" />
+                                    <img src={item.profile_image} className="poll_image" alt="6Lue1a.jpg" border="0" />
         
                                 </td>
                                 <td>
                                     <h5 class="yellow">{item.candidate_name}</h5>
                                     <div class="level_parent">
-                                        <div class="level_child"></div>
+                                        <div class="level_child" style={{width:final+"px"}}></div>
                                     </div>
                                     <button class="votes">{item.votes.count}</button>
         
