@@ -33,8 +33,10 @@ function AddCandidate() {
     const [response, setResponse] = useState("")
 
     //RENDERING TO DOM
-    const renderPolls =()=>{
-
+    const renderPolls =(data)=>{
+        data.map((item)=>{
+            alert(item.candidate_name)
+        })
     }
 
 
@@ -43,7 +45,7 @@ function AddCandidate() {
         fetch(BASE_URL +'/get_all_candidates')
             .then((data) => data.json())
             .then((data1) => {
-                setDrinks(data1);
+                renderPolls(data1);
             })
     }, [])
 
