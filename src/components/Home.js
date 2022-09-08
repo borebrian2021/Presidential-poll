@@ -17,8 +17,13 @@ function Home() {
 
                         </td>
                         <td>
-<h5 class="yellow">William Samoei Ruto</h5><br/>
-<div class="level_parent"></div>
+<h5 class="yellow">William Samoei Ruto</h5>
+<div class="level_parent">
+    <div class="level_child"></div>
+</div>
+<button class="optionButtons">Upvote</button>
+<button class="optionButtons">Upvote</button>
+
                         </td>
 
                     </tr>
