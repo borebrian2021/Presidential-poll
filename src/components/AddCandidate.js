@@ -34,11 +34,11 @@ function AddCandidate() {
     const [polls, setPolls] = useState([])
 
     //RENDERING TO DOM
-    const renderPolls = (data) => {
-        data.map((item) => {
-            // alert(item.candidate_name)
-        })
-    }
+    // const renderPolls = (data) => {
+    //     // data.map((item) => {
+    //     //     // alert(item.candidate_name)
+    //     // })
+    // }
 
     //DELETE API
     const delete_candidate = (id) => {
@@ -62,7 +62,7 @@ function AddCandidate() {
                 setPolls(data1);
                 console.log(polls)
             })
-    }, [hide])
+    }, [])
 
     //STOPT FORM FROM REFRESH
     const handleSubmit = (event) => {
