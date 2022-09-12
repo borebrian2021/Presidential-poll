@@ -16,11 +16,11 @@ function App() {
   // const [search, setSearch] = useState("");
 
   return (
-    // <div>
-  //  <Home/>
-  /* <AddCandidate/>  */
-  <Auth/>
-  // </div>
+    <div>
+   {/* <Home/> */}
+  {/* <AddCandidate/>  */}
+   <Auth/>
+  </div>
   );
 }
 
