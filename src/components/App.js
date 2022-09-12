@@ -1,26 +1,17 @@
-// import React, { useEffect, useState } from "react";
-// import Header from "./Header";
-// import Search from "./Search";
-// import MessageList from "./MessageList";
-// import Home from "./Home";
-// import AddCandidate from "./AddCandidate";
-import Auth from "./Auth";
-
-
+// import Auth from "./Auth";
+import Home from "./Home"
+import {BrowserRouter as Link, Router,  Routes,  Route} from 'react-router-dom'
 
 // const testUser = { username: "Duane" };
-
 function App() {
-  // const [isDarkMode, setIsDarkMode] = useState(true);
-  // const [messages, setMessages] = useState([]);
-  // const [search, setSearch] = useState("");
-
   return (
-    <div>
-   {/* <Home/> */}
-  {/* <AddCandidate/>  */}
-   <Auth/>
-  </div>
+    <Router>
+        <Routes>
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
+   
+   
   );
 }
 

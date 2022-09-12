@@ -3,7 +3,7 @@ const BASE_URL = "http://localhost:9292"
 
 function Home() {
     const [polls, setPolls] = useState([])
-    const [hide, setHide] = useState(false)
+    // const [hide, setHide] = useState(false)
     useEffect(() => {
         fetch(BASE_URL + '/get_all_candidates')
             .then((data) => data.json())
@@ -11,7 +11,7 @@ function Home() {
                 setPolls(data1);
                 console.log(polls)
             })
-    }, [hide])
+    }, )
 
     //UPVOTE 
     function upVote(id){

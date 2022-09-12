@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from 'gapi-script'
-import headers from "./helpers/headers/headers";
+// import headers from "./helpers/headers/headers";
 
 const BASE_URL = "http://localhost:9292"
 const CLIENT_ID = "374139265365-ff4v6vsc5j3mr5l4jdpk3q87lcv424ft.apps.googleusercontent.com"
@@ -27,7 +27,7 @@ const responseGoogle = response => {
 
 function Auth() {
     const [polls, setPolls] = useState([])
-    const [hide, setHide] = useState(false)
+    // const [hide, setHide] = useState(false)
 
 
     useEffect(() => {
@@ -50,22 +50,22 @@ function Auth() {
                 setPolls(data1)
                 console.log(polls)
             })
-    }, [hide])
+    })
 
     //UPVOTE 
-    function upVote(id) {
-        alert(id)
-        fetch(BASE_URL + "/vote", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                candidate_id: id
-            }),
-        })
+    // function upVote(id) {
+    //     alert(id)
+    //     fetch(BASE_URL + "/vote", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //             candidate_id: id
+    //         }),
+    //     })
 
-    }
+    // }
 
 
 
