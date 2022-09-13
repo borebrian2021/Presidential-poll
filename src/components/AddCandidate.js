@@ -62,7 +62,7 @@ function AddCandidate() {
                 setPolls(data1);
                 console.log(polls)
             })
-    }, [])
+    }, [hide])
 
     //STOPT FORM FROM REFRESH
     const handleSubmit = (event) => {

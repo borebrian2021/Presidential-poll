@@ -1,163 +1,19 @@
-body{
-  height: 100%;
-  width: 100%;
-  background-color: #16202c;
-
-
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.appTitle{
-  width:100%;
-  height: 40px;
-  background-color: #16202c;
-  border-top-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  color:#60991a;
-  display:flex;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+@media only screen and (max-width: 895px) {
+  .center_flex {
+    grid-template-columns: 100% !important;
+  }
 }
 
-.home{
-  padding: 2px;
-  height:300px;
-  width: 80%;
-  margin-top:10%;
-  background-color: #16202c
-;
-  border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.pollsResults{
-
-  /* display:grid; */
-  /* grid-template-columns: 30% 70%; */
-  /* grid-gap: 10px; */
-  margin-top:2px;
-  padding:2px;
-  height:160px;
-  background-color: #23313d;
-}
-#root{
-  /* display: flex; */
-  align-items: center;
-  justify-content: center;
-  height:100%;
-  width: 100%;
-}
-
-.poll_image{
-  height: 100px;
-  width:100px;
-  margin:10px;
-  object-fit: cover;
-  border-radius: 100px;
-  border: #16202c 5px solid;
-}
-.votes{
-  background-color:#16202c;
-  border:1px solid #60991a;
-  border-radius: 100px;
-  height: 30px;
-  width:30px;
-  color:#60991a;
-  margin-right: 5px;
-}
-.imageSecetion{
-  display: flex;
-  justify-content:left;
-  align-items: center;
-  text-align: center;
-}
-.yellow{
-  margin:0px;
-  color: #fed800;
-  margin-bottom:10px;
-}
-.level_parent{
-  width: 160px; 
-  background-color: #16202c;
-  height:10px;
-  border-radius: 15px;
-  margin-bottom: 10px;
-}
-.level_child{
-  height: 10px;
-  border-radius: 15px;
-  background-color: #60991a;
-  width:100px;
-}
-.optionButtons{
-  background-color:#16202c;
-  border:1px solid #60991a;
-  border-radius: 15px;
-  color: #60991a;
-  font-size:10px;
-  padding: 5px;
-  margin-right:5px;
-}
-.optionButtons_yellow{
-background-color: #fed800 !important;
-color: #16202c;
-}
-.next_to_buttons{
-margin-right: 5px;
-}
-.register{
-  width:100%;
-  padding:15px;
-}
-.form-control{
-  background-color: #16202c;
-  color:#60991a;
-  border:none;
-}
-.form-control:focus{
-  background-color: #16202c;
-  color:#60991a;
-  border:none;
-}
-.message{
-  margin: 10px;
-  width:90% !important;
-  height: unset;
-  padding:10px;
-  color:#fed800;
-  /* height: 10px !important; */
-}
-
-.google_btn{
-  background-color:#16202c !important;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  color:#60991a !important;
-
-}
-.center{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-.login_card{
-  background-color:#23313d;
-  width: 100%;
-  height: 150px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin-top: 60px;
-  border-radius: 3px;
-}
-.login_title{
-  background-color: #16202c;
-  height: 40px;
-  color: #fed800;
-  padding: 7px;
-}
-.login_bodddy{
-  height: 40px;
-  color: #fed800;
-  padding: 7px;
-  padding-top: 30px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}

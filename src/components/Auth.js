@@ -22,6 +22,10 @@ const responseGoogle = response => {
             googleId: response.profileObj.googleId,
             img_url: response.profileObj.imageUrl
         }),
+    }).then(
+        (data)=>data.json()
+    ).then((data1)=>{
+        console.log(data1)
     })
 }
 
@@ -43,14 +47,6 @@ function Auth() {
 
 
 
-    useEffect(() => {
-        fetch(BASE_URL + '/get_all_candidates')
-            .then((data) => data.json())
-            .then((data1) => {
-                setPolls(data1)
-                console.log(polls)
-            })
-    })
 
     //UPVOTE 
     // function upVote(id) {

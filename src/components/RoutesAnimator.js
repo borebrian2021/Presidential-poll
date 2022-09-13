@@ -1,8 +1,6 @@
 import react from 'react'
-import DrinkBody from './DrinkBody'
-import DrinksDetails from './DrinksDetails'
-import UploadForm from './UploadForm'
-
+import AddCandidate from './AddCandidate';
+import Auth from './Auth';
 import { AnimatePresence  }  from 'framer-motion'
 import LogIn from './LogIn'
 import {
@@ -10,17 +8,17 @@ import {
   }from "react-router-dom";
 function RoutesAnimator(){
     const location=useLocation();
+    const [url,setUrl]= useState("");
+
     return(
         <AnimatePresence>
         <Routes location={location} key={location.key}>
-        <Route exact  path='/' element={<DrinkBody/>}>
+        <Route exact  path='/add' element={<AddCandidate />}>
         </Route> 
-        <Route exact  path='/DrinksDetails' element={<DrinksDetails/>}>
+        <Route exact  path='/LogIn' element={<Auth/>}>
         </Route> 
-        <Route exact  path='/LogIn' element={<LogIn/>}>
-        </Route> 
-        <Route exact  path='/UploadForm' element={<UploadForm/>}>
-        </Route> 
+
+        
         </Routes>
         </AnimatePresence>
       
