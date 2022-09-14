@@ -23,8 +23,8 @@ body{
   padding: 2px;
   /* height:300px; */
   /* width: 90%; */
-  margin-top:10%;
-  padding: 10%;
+  /* margin-top:%; */
+  padding: 5%;
   background-color: #16202c;
   border-radius: 2px;
   /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
@@ -177,6 +177,7 @@ margin-right: 5px;
   justify-content: left;
   text-align: left;
   align-items: left;
+  display: flex;
 }
 .right{
   display:flex;
@@ -185,11 +186,16 @@ margin-right: 5px;
   align-items: right;
   
 }
+.margin{
+  margin-right: 10px;
+  color: #60991a;
+}
 .yellow_links{
   /* color: #60991a; */
   font-size: smaller;
   text-decoration: none;
   margin-right: 10px;
+  color:#fed800 !important;
   /* background-color: #16202c; */
   /* border-radius: 3px; */
   /* padding: 2px; */

@@ -1,38 +1,47 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 // import ReactDOM from "react-dom";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from 'gapi-script'
+import {useNavigate} from 'react-router-dom'
+
 // import headers from "./helpers/headers/headers";
 
-const BASE_URL = "http://localhost:9292"
+const BASE_URL = "https://pollslive.herokuapp.com"
 const CLIENT_ID = "374139265365-ff4v6vsc5j3mr5l4jdpk3q87lcv424ft.apps.googleusercontent.com"
 
-const responseGoogle = response => {
-    console.log(response)
 
-    fetch(BASE_URL + "/sign_up_sign_in", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            name: response.profileObj.name,
-            email: response.profileObj.email,
-            role: 1,
-            googleId: response.profileObj.googleId,
-            img_url: response.profileObj.imageUrl
-        }),
-    }).then(
-        (data)=>data.json()
-    ).then((data1)=>{
-        console.log(data1)
-    })
-}
+function Auth({getGoogleID}) {
 
-function Auth() {
-    const [polls, setPolls] = useState([])
-    // const [hide, setHide] = useState(false)
+const [polls, setPolls] = useState([])
+  const initNavigation = useNavigate();
+ // const [hide, setHide] = useState(false)
 
+
+    const responseGoogle = response => {
+        console.log(response)
+    
+        fetch(BASE_URL + "/sign_up_sign_in", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: response.profileObj.name,
+                email: response.profileObj.email,
+                role: 1,
+                googleId: response.profileObj.googleId,
+                img_url: response.profileObj.imageUrl
+            }),
+        }).then(
+            (data)=>data.json()
+        ).then((data1)=>{
+            console.log(response.profileObj.googleId)
+            getGoogleID(response.profileObj.googleId)
+            initNavigation('/')
+            
+        })
+    }
+    
 
     useEffect(() => {
         function start() {
@@ -42,7 +51,7 @@ function Auth() {
             })
         };
         gapi.load('client:auth2', start);
-    }, [])
+    })
 
 
 
@@ -90,7 +99,7 @@ function Auth() {
         cookiePolicy="single_host_origin"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
-        isSignedIn={true}
+        // isSignedIn={true}
       />
                         </div>
                     </div>

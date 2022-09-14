@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-const BASE_URL = "http://localhost:9292"
+const BASE_URL = "https://pollslive.herokuapp.com"
 //STATES
 
 
@@ -62,7 +62,7 @@ function AddCandidate() {
                 setPolls(data1);
                 console.log(polls)
             })
-    }, [hide])
+    }, [])
 
     //STOPT FORM FROM REFRESH
     const handleSubmit = (event) => {
