@@ -1,19 +1,70 @@
 import React,{useEffect, useState} from "react";
-const BASE_URL = "https://pollslive.herokuapp.com"
+// const BASE_URL = "https://pollslive.herokuapp.com"
+const BASE_URL = "http://localhost:9292"
+
+
 function Vote() {
     const [polls, setPolls] = useState([])
+    const [vote,setVotes]=useState([])
 
   //LETS LOAD ALL CANDIDATES
   useEffect(() => {
     fetch(BASE_URL + '/get_all_candidates')
         .then((data) => data.json())
         .then((data1) => {
+            console.log(data1)
             setPolls(data1);
-            console.log(polls)
         })
-},[])
+},[vote])
 
+const removeVote = (clientId) => {
+    // alert(candidateName)
+    fetch(BASE_URL + "/removeVote", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            {
+                candidateID: clientId
+            }
+        )
+    }).then((feedback) => feedback.json())
+        .then((data) => {
+            // alert(data.partyName)
+            // console.log(data)
+            // setResponse()
+            setVotes(data)
+            alert(`Success!, You have registered ${data.message} candidate_name`)
+            // setHide(!hide)
 
+        })
+
+}
+const addVote = (clientId) => {
+    // alert(candidateName)
+    fetch(BASE_URL + "/addVote", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            {
+                candidateID: clientId
+            }
+        )
+    }).then((feedback) => feedback.json())
+        .then((data) => {
+            // alert(data.partyName)
+            // console.log(data)
+            // setResponse()
+            setVotes(data)
+            alert(`Success!, You have registered ${data.message} candidate_name`)
+            // setHide(!hide)
+
+        })
+
+}
     return (
         
         <div className="home">
@@ -25,7 +76,7 @@ function Vote() {
                     let final = gauge / totalVotesCount * 100
                     console.log(final)
 
-
+                    // console.log()
                     return (
                         <div className="pollsResults">
 
@@ -41,9 +92,11 @@ function Vote() {
                                         <div class="level_parent">
                                             <div class="level_child" style={{ width: final + "px" }}></div>
                                         </div>
-                                        <button class="votes">{item.votes.count}</button>
+                                        <button class="votes">{item.votes.length}</button>
 
-                                        {/* <button class="optionButtons" onClick={() => { delete_candidate(item.id) }} >Delete</button> */}
+                                        <button class="optionButtons" onClick={() => { addVote(item.id) }} >Upvote</button>
+                                        <button class="optionButtons" onClick={() => { removeVote(item.id) }} >Downvote</button>
+
 
                                     </td>
 
