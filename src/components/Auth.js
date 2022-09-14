@@ -9,17 +9,12 @@ import {useNavigate} from 'react-router-dom'
 const BASE_URL = "https://pollslive.herokuapp.com"
 const CLIENT_ID = "374139265365-ff4v6vsc5j3mr5l4jdpk3q87lcv424ft.apps.googleusercontent.com"
 
-
 function Auth({getGoogleID}) {
-
 const [polls, setPolls] = useState([])
   const initNavigation = useNavigate();
  // const [hide, setHide] = useState(false)
-
-
     const responseGoogle = response => {
         console.log(response)
-    
         fetch(BASE_URL + "/sign_up_sign_in", {
             method: "POST",
             headers: {
@@ -53,11 +48,7 @@ const [polls, setPolls] = useState([])
         gapi.load('client:auth2', start);
     })
 
-
-
-
-
-    //UPVOTE 
+    //  UPVOTE 
     // function upVote(id) {
     //     alert(id)
     //     fetch(BASE_URL + "/vote", {
